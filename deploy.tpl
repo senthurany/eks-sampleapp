@@ -32,6 +32,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: ${ACCOUNT_ID}.dkr.ecr>.${region}.amazonaws.com/eks-sampleapp # Change the ecr registry with correct one 
+        image: ${ACCOUNT_ID}.dkr.ecr.${region}.amazonaws.com/eks-sampleapp # Change the ecr registry with correct one 
         ports:
         - containerPort: 3000
