@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: eks-sampleservice
-  namespace: dev
+  namespace: development # Replace the namespace if it does not match your fargate profile
   labels:
     app: eks-sampleapp
 spec:
@@ -17,11 +17,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: eks-sampleapp
-  namespace: dev
+  namespace: development # Replace the namespace if it does not match your fargate profile
   labels:
     app: eks-sampleapp
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: eks-sampleapp
@@ -32,6 +32,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: 381464687983.dkr.ecr.us-east-1.amazonaws.com/eks-sampleapp
+        image: 381464687983.dkr.ecr.us-east-1.amazonaws.com/eks-sampleapp # Change the ecr registry with correct one 
         ports:
         - containerPort: 3000
