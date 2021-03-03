@@ -21,7 +21,7 @@ export ACCOUNT_ID=$(aws sts get-caller-identity --profile $profile| grep Account
 export namespace=$namespace
 export region=$region
 
-export ECR_PASSWORD=$(aws ecr get-login-password --region $region --profile profile)
+export ECR_PASSWORD=$(aws ecr get-login-password --region $region --profile $profile)
 docker login -u AWS -p ${ECR_PASSWORD} https://${ACCOUNT_ID}.dkr.ecr.${region}.amazonaws.com
 
 docker build -t ${ACCOUNT_ID}.dkr.ecr>.${region}.amazonaws.com/eks-sampleapp .
